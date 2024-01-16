@@ -83,6 +83,7 @@ func ipFromForwardedForHeader(v string) string {
 func ipFromRequest(headers []string, r *http.Request, customIP bool) (net.IP, error) {
 	remoteIP := ""
 	if customIP && r.URL != nil {
+		fmt.Printf("r.URL.Query()['ip'] %v", r.URL.Query()["ip"])
 		if v, ok := r.URL.Query()["ip"]; ok {
 			remoteIP = v[0]
 		}
